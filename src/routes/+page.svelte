@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import StartScreen from "$lib/ui/StartScreen.svelte";
+    import { fade } from "svelte/transition";
+</script>
+
+<!-- <svelte:head>
+    <title>krumboeck.xyz</title>
+  </svelte:head> -->
+
+<nav transition:fade={{duration: 500}}>
+    <a href="/work">enter</a>
+    <StartScreen/>
+</nav>
+
