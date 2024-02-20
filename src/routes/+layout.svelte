@@ -6,7 +6,5 @@ import 'concrete.css'
 
 </script>
 
-<slot>
-    
-</slot>
+<slot></slot>
 
