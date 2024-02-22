@@ -1,17 +1,17 @@
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
     import * as THREE from 'three'
-    import { GLTFLoader } from 'three/examples/jsm/Addons.js';
+    // import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 
     let renderer;
     let scene;
     let camera;
     let cube;
     
-    const loader = new GLTFLoader();
-    loader.load(
-      '/'
-    )
+    // const loader = new GLTFLoader();
+    // loader.load(
+    //   '/'
+    // )
 
   
     onMount(() => {
@@ -22,18 +22,18 @@
       let wrap = document.getElementById("3dScene")
       wrap.appendChild(renderer.domElement);
   
-      const geometry = new THREE.BoxGeometry(1, 1, 1);
+      const geometry = new THREE.BoxGeometry(3, 3, 3);
       const wireframeGeometry = new THREE.WireframeGeometry(geometry)
-      const material = new THREE.LineBasicMaterial({ color:  0x00ff00, linewidth: 2 });
+      const material = new THREE.LineBasicMaterial({ color:  0xffffff, linewidth: 2 });
       // cube = new THREE.Mesh(geometry, material);
       const wireframe = new THREE.LineSegments(wireframeGeometry, material)
       scene.add(wireframe);
   
-      camera.position.z =  0;
+      camera.position.z =  6;
   
       const animate = () => {
         requestAnimationFrame(animate);
-        wireframe.rotation.x +=  0.01;
+        // wireframe.rotation.x +=  0.01;
         wireframe.rotation.y +=  0.01;
         renderer.render(scene, camera);
       };
