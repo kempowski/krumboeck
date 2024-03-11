@@ -8,7 +8,7 @@
   </svelte:head> -->
 
 <nav transition:fade={{duration: 500}}>
-    <a href="/work">enter</a>
+    <!-- <a href="/work">enter</a> -->
     <StartScreen/>
 </nav>
 
