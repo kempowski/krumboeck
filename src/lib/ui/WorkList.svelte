@@ -1,4 +1,5 @@
 <script>
+    //@ts-nocheck
     import { getImageURL, url } from '$lib/utils/getUrls';
     import { items } from '$lib/store';
     import { fade } from 'svelte/transition'
@@ -9,7 +10,7 @@
     $: linkRef = []
 
     $: hov = false;
-    // console.log(projekte[0].id)
+    // console.log(projekte)
     // console.log($items)
 
     items.subscribe((value) => {
@@ -17,11 +18,11 @@
     })
 
     function highlightCheck(items, inId, index){
-        console.log(linkRef)
+        // console.log(linkRef)
 
         // SUCHT DEN WERT DES FILTERS, OB ER AN ODER AUS IST
         const result = items.find(({id}) => id === inId )
-        console.log(result)
+        // console.log(result)
 
         // WENN ES EINE LINK DOM VERKNUEPFUNG GIBT, SETZT FARBE ODER NICHT
         if ( linkRef[index] !== undefined){
@@ -37,7 +38,6 @@
 
     function hovOv(){
         hov = !hov
-        console.log(hov)
     }
 
 </script>
@@ -56,10 +56,10 @@
                         {projekt.Titel}
                         <span>{projekt.KurzBezeichnung}</span>
                     </a>
-                <a class:imageWrap={hov} href="/work/{projekt.Slug}?id={projekt.id}">
-                    <img src={url}{getImageURL(projekt.collectionId, projekt.id, projekt.Cover)} 
-                    alt="Cover Image of {projekt.Titel}">
-                </a>
+                    <a class="imageWrap" href="/work/{projekt.Slug}?id={projekt.id}">
+                        <img src={url}{getImageURL(projekt.collectionId, projekt.id, projekt.Cover)} 
+                        alt="Cover Image of {projekt.Titel}">
+                    </a>
             </li>
         {/if}
 
@@ -79,19 +79,6 @@
         width: fit-content;
 
         li {
-            img {
-                opacity: 0;
-                width: 66vw;
-                max-width: 70vw;
-                max-height: 90vh;
-                aspect-ratio: auto;
-                position: absolute;
-                bottom: 6rem;
-                right: 6rem;
-                transition: opacity 0.125s linear;
-                z-index: 1;
-                padding-left: 40px;
-            }
             .text {
                 text-decoration: none;
                 transition: color 0.2s linear;
@@ -120,14 +107,31 @@
         }
         
         li:hover { 
-            img {
-                opacity: 1;
-                z-index: 1;
-            }
+            // img {
+            //     opacity: 1;
+            //     z-index: 1;
+            // }
             .text{
                 span{
                     opacity: 1;
                 }
+            }
+        }
+
+        .imageWrap {
+            width: 100vw;
+            height: 100vw;
+            // max-height: 90vh;
+            aspect-ratio: auto;
+            position: absolute;
+            bottom: 6rem;
+            right: 6rem;
+            transition: opacity 0.125s linear;
+            z-index: 1;
+            padding-left: 40px;
+
+            img{
+                opacity: 0;
             }
         }
     }
