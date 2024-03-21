@@ -5,12 +5,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [sveltekit()],
-	ssr: {
-		noExternal: ['three']
-	},
-	server: {
-        proxy: {}
-    },
 
   css: {
     preprocessorOptions: {

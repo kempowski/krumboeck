@@ -38,6 +38,7 @@
 
     function hovOv(){
         hov = !hov
+        console.log(hov)
     }
 
 </script>
@@ -58,7 +59,8 @@
                     </a>
                     <a class="imageWrap" href="/work/{projekt.Slug}?id={projekt.id}">
                         <img src={url}{getImageURL(projekt.collectionId, projekt.id, projekt.Cover)} 
-                        alt="Cover Image of {projekt.Titel}">
+                        alt="Cover Image of {projekt.Titel}"
+                        >
                     </a>
             </li>
         {/if}
@@ -96,7 +98,11 @@
                     color: #202020;
                     padding-left: 20px;
                 }
+            }
 
+            img{
+                opacity: 0;
+                max-width: 50vw;
             }
         }
 
@@ -107,10 +113,10 @@
         }
         
         li:hover { 
-            // img {
-            //     opacity: 1;
-            //     z-index: 1;
-            // }
+            img {
+                opacity: 1;
+                z-index: 1;
+            }
             .text{
                 span{
                     opacity: 1;
@@ -119,8 +125,8 @@
         }
 
         .imageWrap {
-            width: 100vw;
-            height: 100vw;
+            // width: 100vw;
+            // height: 100vw;
             // max-height: 90vh;
             aspect-ratio: auto;
             position: absolute;
@@ -130,8 +136,11 @@
             z-index: 1;
             padding-left: 40px;
 
-            img{
+            .hide{
                 opacity: 0;
+            }
+            .view{
+                opacity: 1;
             }
         }
     }

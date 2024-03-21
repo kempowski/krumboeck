@@ -7,7 +7,7 @@
     export let kategorien
     
 
-    console.log(kategorien)
+    // console.log(kategorien)
 
     let bgColor = ''
     
@@ -21,7 +21,7 @@
         { id:  kategorien[4].id, name: kategorien[4].Kategorie_Name, highlight: false, bg: 'hotpink'} ,
     ]);
 
-    console.log($items)
+    // console.log($items)
 
 
     function toggleHighlight(itemId, index) {
